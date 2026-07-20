@@ -1,0 +1,18 @@
+{
+  "criteria": {
+    "right_click": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": "minecraft:music_disc_5",
+          "components": {
+            "minecraft:item_name": "Remote Control"
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "remote_control:use_remote/right_click/init"
+  }
+}

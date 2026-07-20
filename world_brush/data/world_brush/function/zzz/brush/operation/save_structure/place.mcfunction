@@ -1,0 +1,1 @@
+$setblock ~ ~ ~ structure_block{posX:$(pos_x),posY:$(pos_y),posZ:$(pos_z),sizeX:$(size_x),sizeY:$(size_y),sizeZ:$(size_z),mode:SAVE}

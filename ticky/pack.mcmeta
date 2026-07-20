@@ -1,0 +1,10 @@
+{
+  "pack": {
+    "description": "Ticks a stored list of commands.",
+    "min_format": [
+      101,
+      2
+    ],
+    "max_format": 101
+  }
+}

@@ -1,0 +1,1 @@
+$data modify storage command_chain_editor:temp all.command_list set value '$(command_list)\n\n'

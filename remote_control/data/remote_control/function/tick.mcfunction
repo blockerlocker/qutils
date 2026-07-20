@@ -1,0 +1,1 @@
+scoreboard players remove @a[scores={remote_control_impulse_cooldown=1..}] remote_control_impulse_cooldown 1

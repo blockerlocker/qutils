@@ -1,0 +1,1 @@
+$data modify storage multi_command:temp data.$(count) set from storage multi_command:temp data.list[0]

@@ -1,0 +1,10 @@
+{
+  "pack": {
+    "description": "Tp to last death location",
+    "min_format": [
+      101,
+      2
+    ],
+    "max_format": 101
+  }
+}

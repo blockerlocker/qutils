@@ -1,0 +1,1 @@
+$data modify entity @n[type=text_display] text.color set value "$(color)"

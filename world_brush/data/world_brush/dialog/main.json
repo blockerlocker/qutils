@@ -1,0 +1,49 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "World Brush Functions",
+    "columns": 1,
+    "actions": [
+        {
+            "label": "Select",
+            "action": {
+                "type": "minecraft:run_command",
+                "command": "function world_brush:zzz/brush/save {args:{stored_coordinates:false,no_left_click:true},operation:select}"
+            }
+        },
+        {
+            "label": "Fill",
+            "action": {
+                "type": "minecraft:show_dialog",
+                "dialog": "world_brush:operation/fill"
+            }
+        },
+        {
+            "label": "Replace",
+            "action": {
+                "type": "minecraft:show_dialog",
+                "dialog": "world_brush:operation/replace"
+            }
+        },
+        {
+            "label": "Clone",
+            "action": {
+                "type": "minecraft:show_dialog",
+                "dialog": "world_brush:operation/clone"
+            }
+        },
+        {
+            "label": "Run Command",
+            "action": {
+                "type": "minecraft:show_dialog",
+                "dialog": "world_brush:operation/run_command"
+            }
+        },
+        {
+            "label": "Place Structure Block",
+            "action": {
+                "type": "minecraft:run_command",
+                "command": "function world_brush:zzz/brush/save {args:{stored_coordinates:false,no_left_click:true,right_click_activated:true},operation:save_structure}"
+            }
+        }
+    ]
+}

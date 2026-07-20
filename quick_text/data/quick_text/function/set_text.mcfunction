@@ -1,0 +1,2 @@
+execute as @n[type=text_display] unless data entity @s text.text run data modify entity @s text set value {text:"Text Display",color:white}
+$data modify entity @n[type=text_display] text.text set value "$(text)"

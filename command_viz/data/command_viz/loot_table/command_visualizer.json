@@ -1,0 +1,32 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "item_frame",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_components",
+                            "components": {
+                                "minecraft:item_name": "Command Visualizer",
+                                "minecraft:item_model": "minecraft:pale_oak_hanging_sign",
+                                "minecraft:enchantment_glint_override": true,
+                                "minecraft:custom_data": {
+                                    "command_viz": true
+                                },
+                                "minecraft:entity_data": {
+                                    "id": "item_frame",
+                                    "Silent": true,
+                                    "Invisible": true,
+                                    "Fixed": true
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+data modify entity @n[type=text_display] {} merge from storage quick_text:clipboard clipboard

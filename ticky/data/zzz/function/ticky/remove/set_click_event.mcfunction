@@ -1,0 +1,1 @@
+$data modify storage ticky:temp all.text_component.click_event.command set value "data remove storage ticky:commands all[{command:'$(text)'}]"

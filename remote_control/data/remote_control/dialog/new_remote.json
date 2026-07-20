@@ -1,0 +1,66 @@
+{
+  "type": "minecraft:multi_action",
+  "title": "New Remote",
+  "body": {
+    "type": "minecraft:plain_message",
+    "contents": {
+      "text": "Edit current remote.",
+      "color": "yellow",
+      "underlined": true,
+      "click_event": {
+        "action": "run_command",
+        "command": "function remote_control:edit_remote/init"
+      }
+    }
+  },
+  "inputs": [
+    {
+      "type": "minecraft:text",
+      "key": "left_click",
+      "label": "Left Click",
+      "width": 300,
+      "max_length": 999999999,
+      "multiline": {
+        "max_lines": 256,
+        "height": 60
+      }
+    },
+    {
+      "type": "minecraft:text",
+      "key": "right_click",
+      "label": "Right Click",
+      "width": 300,
+      "max_length": 999999999,
+      "multiline": {
+        "max_lines": 256,
+        "height": 60
+      }
+    },
+    {
+      "type": "minecraft:single_option",
+      "key": "right_click_mode",
+      "label": "Right Click Mode",
+      "options": [
+        {
+          "id": "impulse",
+          "display": "Impulse",
+          "initial": true
+        },
+        {
+          "id": "constant",
+          "display": "Constant"
+        }
+      ]
+    }
+  ],
+  "after_action": "close",
+  "actions": [
+    {
+      "label": "Give Remote",
+      "action": {
+        "type": "dynamic/run_command",
+        "template": "function remote_control:give_remote/init {left_click:\"$(left_click)\",right_click:\"$(right_click)\",right_click_mode:\"$(right_click_mode)\"}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+execute if data storage ticky:commands all[0] run function zzz:ticky/init

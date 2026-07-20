@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "Fill",
+    "inputs": [
+        {
+            "type": "minecraft:text",
+            "key": "block",
+            "label": "Block",
+            "initial": "stone",
+            "max_length": 999999
+        }
+    ],
+    "actions": [
+        {
+            "label": "Run",
+            "action": {
+                "type": "minecraft:dynamic/run_command",
+                "template": "function world_brush:zzz/brush/save {args:{block:\"$(block)\",stored_coordinates:false},operation:fill}"
+            }
+        }
+    ]
+}

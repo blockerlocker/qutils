@@ -1,0 +1,1 @@
+$data modify storage telerport:temp all.whole_float_fix.out set value $(float)

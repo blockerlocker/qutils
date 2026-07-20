@@ -1,0 +1,1 @@
+$function multi_command:$(count) with storage multi_command:temp data

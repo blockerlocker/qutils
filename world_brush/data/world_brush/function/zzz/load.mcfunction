@@ -1,0 +1,3 @@
+scoreboard objectives add operator dummy
+
+scoreboard objectives add world_brush_selection_mode dummy

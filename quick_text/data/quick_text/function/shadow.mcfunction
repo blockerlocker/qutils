@@ -1,0 +1,1 @@
+execute as @n[type=text_display] store result entity @s shadow byte 1 unless data entity @s {shadow:1b}

@@ -1,0 +1,1 @@
+advancement revoke @a only command_chain_editor:use

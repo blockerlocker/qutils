@@ -1,0 +1,31 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "Clone",
+    "inputs": [
+        {
+            "type": "minecraft:single_option",
+            "key": "place_mode",
+            "label": "Clone Location",
+            "options": [
+                {
+                    "id": "0",
+                    "display": "At Face",
+                    "initial": true
+                },
+                {
+                    "id": "-1",
+                    "display": "At Block"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "label": "Run",
+            "action": {
+                "type": "minecraft:dynamic/run_command",
+                "template": "function world_brush:zzz/brush/save {args:{place_mode:\"$(place_mode)\",stored_coordinates:true,right_click_activated:true,no_left_click:true},operation:\"clone\"}"
+            }
+        }
+    ]
+}

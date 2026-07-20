@@ -1,0 +1,27 @@
+{
+    "criteria": {
+        "creative_brush": {
+            "trigger": "minecraft:item_used_on_block",
+            "conditions": {
+                "player": {
+                    "minecraft:type_specific/player": {
+                        "gamemode": [
+                            "creative"
+                        ]
+                    },
+                    "equipment": {
+                        "mainhand": {
+                            "items": "item_frame",
+                            "components": {
+                                "minecraft:item_name": "World Brush"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "world_brush:zzz/player/used_brush"
+    }
+}

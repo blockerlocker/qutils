@@ -1,0 +1,1 @@
+$tp @s $(new_x) $(new_y) $(new_z)

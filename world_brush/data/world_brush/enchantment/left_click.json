@@ -1,0 +1,28 @@
+{
+    "description": "Left Click",
+    "supported_items": "minecraft:item_frame",
+    "weight": 1,
+    "max_level": 1,
+    "min_cost": {
+        "base": 0,
+        "per_level_above_first": 0
+    },
+    "max_cost": {
+        "base": 0,
+        "per_level_above_first": 0
+    },
+    "anvil_cost": 0,
+    "slots": [
+        "any"
+    ],
+    "effects": {
+        "minecraft:post_piercing_attack": [
+            {
+                "effect": {
+                    "type": "minecraft:run_function",
+                    "function": "world_brush:zzz/brush/left_click"
+                }
+            }
+        ]
+    }
+}

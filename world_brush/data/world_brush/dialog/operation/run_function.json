@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "Run Function",
+    "inputs": [
+        {
+            "type": "minecraft:text",
+            "key": "function",
+            "label": "Function",
+            "initial": "execute as @e[type=!player,distance=..3] run data merge entity @s {Health:0,DeathTime:20}\nkill @e[type=!player,distance=..3]",
+            "max_length": 999999
+        }
+    ],
+    "actions": [
+        {
+            "label": "Run",
+            "action": {
+                "type": "minecraft:dynamic/run_command",
+                "template": "function world_brush:zzz/brush/save {args:{function:\"$(function)\",stored_coordinates:true,right_click_activated:true,no_left_click:true},operation:\"run_function\"}"
+            }
+        }
+    ]
+}

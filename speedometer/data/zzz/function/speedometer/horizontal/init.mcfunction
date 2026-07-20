@@ -1,0 +1,10 @@
+execute if predicate {condition:entity_properties,entity:this,predicate:{movement:{horizontal_speed:{min:0, max:9.999}}}} run function zzz:speedometer/horizontal/0-9
+execute if predicate {condition:entity_properties,entity:this,predicate:{movement:{horizontal_speed:{min:10, max:19.999}}}} run function zzz:speedometer/horizontal/10-19
+execute if predicate {condition:entity_properties,entity:this,predicate:{movement:{horizontal_speed:{min:20, max:29.999}}}} run function zzz:speedometer/horizontal/20-29
+execute if predicate {condition:entity_properties,entity:this,predicate:{movement:{horizontal_speed:{min:30, max:39.999}}}} run function zzz:speedometer/horizontal/30-39
+execute if predicate {condition:entity_properties,entity:this,predicate:{movement:{horizontal_speed:{min:40, max:49.999}}}} run function zzz:speedometer/horizontal/40-49
+execute if predicate {condition:entity_properties,entity:this,predicate:{movement:{horizontal_speed:{min:50, max:59.999}}}} run function zzz:speedometer/horizontal/50-59
+execute if predicate {condition:entity_properties,entity:this,predicate:{movement:{horizontal_speed:{min:60, max:69.999}}}} run function zzz:speedometer/horizontal/60-69
+execute if predicate {condition:entity_properties,entity:this,predicate:{movement:{horizontal_speed:{min:70, max:79.999}}}} run function zzz:speedometer/horizontal/70-79
+execute if predicate {condition:entity_properties,entity:this,predicate:{movement:{horizontal_speed:{min:80, max:89.999}}}} run function zzz:speedometer/horizontal/80-89
+execute if predicate {condition:entity_properties,entity:this,predicate:{movement:{horizontal_speed:{min:90, max:99.999}}}} run function zzz:speedometer/horizontal/90-99

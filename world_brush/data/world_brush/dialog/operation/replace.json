@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "Replace",
+    "inputs": [
+        {
+            "type": "minecraft:text",
+            "key": "replace",
+            "label": "Replace",
+            "initial": "stone",
+            "max_length": 999999
+        },
+        {
+            "type": "minecraft:text",
+            "key": "with",
+            "label": "With",
+            "initial": "dirt",
+            "max_length": 999999
+        }
+    ],
+    "actions": [
+        {
+            "label": "Run",
+            "action": {
+                "type": "minecraft:dynamic/run_command",
+                "template": "function world_brush:zzz/brush/save {args:{replace:\"$(replace)\",with:\"$(with)\",stored_coordinates:false},operation:replace}"
+            }
+        }
+    ]
+}

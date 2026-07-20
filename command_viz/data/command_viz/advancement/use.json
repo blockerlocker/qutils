@@ -1,0 +1,24 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:item_used_on_block",
+            "conditions": {
+                "player": {
+                    "equipment": {
+                        "mainhand": {
+                            "items": "minecraft:item_frame",
+                            "components": {
+                                "minecraft:custom_data": {
+                                    "command_viz": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "command_viz:zzz/use"
+    }
+}

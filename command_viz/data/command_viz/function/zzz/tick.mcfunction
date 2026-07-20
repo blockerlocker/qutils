@@ -1,0 +1,2 @@
+execute as @e[tag=command_viz] at @s run data modify entity @s text set from block ~ ~-0.5 ~ Command
+execute as @e[tag=command_viz] at @s unless block ~ ~-1 ~ command_block unless block ~ ~-1 ~ repeating_command_block unless block ~ ~-1 ~ chain_command_block run kill @s

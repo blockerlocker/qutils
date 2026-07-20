@@ -1,0 +1,1 @@
+$dialog show @s {type:"minecraft:multi_action",title:"qutil Copy to Clipboard",body:{type:"minecraft:plain_message",contents:'$(copy)'},actions:[{label:"Copy to Clipboard",width:100,action:{type:"minecraft:copy_to_clipboard",value:'$(copy)'}}]}

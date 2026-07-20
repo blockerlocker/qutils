@@ -1,0 +1,1 @@
+$data modify entity @n[type=text_display] transformation.scale set value [$(scale),$(scale),1]

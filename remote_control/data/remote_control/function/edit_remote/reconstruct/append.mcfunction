@@ -1,0 +1,1 @@
+$data modify storage remote_control:temp reconstruct.out set value "$(out)\n$(index)"

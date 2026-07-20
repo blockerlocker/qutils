@@ -1,0 +1,42 @@
+{
+    "criteria": {
+        "creative_brush": {
+            "trigger": "minecraft:item_used_on_block",
+            "conditions": {
+                "player": {
+                    "minecraft:type_specific/player": {
+                        "gamemode": [
+                            "creative"
+                        ]
+                    },
+                    "equipment": {
+                        "mainhand": {
+                            "items": "minecraft:brush"
+                        }
+                    }
+                },
+                "location": [
+                    {
+                        "condition": "minecraft:inverted",
+                        "term": {
+                            "condition": "minecraft:any_of",
+                            "terms": [
+                                {
+                                    "condition": "minecraft:block_state_property",
+                                    "block": "minecraft:suspicious_sand"
+                                },
+                                {
+                                    "condition": "minecraft:block_state_property",
+                                    "block": "minecraft:suspicious_gravel"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "function": "world_brush:zzz/brush/creative_convert"
+    }
+}

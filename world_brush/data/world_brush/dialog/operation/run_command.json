@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "Run Command",
+    "inputs": [
+        {
+            "type": "minecraft:text",
+            "key": "command",
+            "label": "Command",
+            "initial": "place feature oak",
+            "max_length": 999999
+        }
+    ],
+    "actions": [
+        {
+            "label": "Run",
+            "action": {
+                "type": "minecraft:dynamic/run_command",
+                "template": "function world_brush:zzz/brush/save {args:{command:\"$(command)\",stored_coordinates:true,right_click_activated:true,no_left_click:true},operation:\"run_command\"}"
+            }
+        }
+    ]
+}

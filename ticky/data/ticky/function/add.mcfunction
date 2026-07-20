@@ -1,0 +1,1 @@
+dialog show @s {type:"minecraft:multi_action",title:"Add Ticky Command",inputs:[{type:"minecraft:text",key:"command",max_length:999999999,label:""}],actions:[{label:"Add",action:{type:"minecraft:dynamic/run_command",template:"data modify storage ticky:commands all append value {command:'$(command)'}"}}]}

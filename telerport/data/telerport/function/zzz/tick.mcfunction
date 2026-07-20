@@ -1,0 +1,1 @@
+execute as @e[tag=telerporting] at @s run function telerport:zzz/lerp/loop

@@ -1,0 +1,10 @@
+{
+  "pack": {
+    "description": "Easily edit command chains via dialog",
+    "min_format": [
+      101,
+      1
+    ],
+    "max_format": 101
+  }
+}
