@@ -1,49 +1,49 @@
 {
-    "pools": [
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
         {
-            "rolls": 1,
-            "entries": [
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:item_frame",
-                    "functions": [
-                        {
-                            "function": "minecraft:set_components",
-                            "components": {
-                                "minecraft:item_name": "World Brush",
-                                "minecraft:item_model": "minecraft:brush",
-                                "minecraft:entity_data": {
-                                    "id": "minecraft:item_frame",
-                                    "Silent": true,
-                                    "Tags": [
-                                        "world_brush"
-                                    ],
-                                    "Invisible": true,
-                                    "Fixed": true
-                                },
-                                "minecraft:attribute_modifiers": [
-                                    {
-                                        "type": "minecraft:block_interaction_range",
-                                        "id": "world_brush_reach",
-                                        "amount": 64,
-                                        "operation": "add_value"
-                                    }
-                                ],
-                                "minecraft:piercing_weapon": {},
-                                "minecraft:enchantments": {
-                                    "world_brush:left_click": 1
-                                },
-                                "minecraft:tooltip_display": {
-                                    "hidden_components": [
-                                        "minecraft:enchantments"
-                                    ]
-                                },
-                                "minecraft:max_stack_size": 1
-                            }
-                        }
-                    ]
-                }
-            ]
+          "type": "minecraft:item",
+          "name": "minecraft:item_frame",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": "World Brush",
+                "minecraft:item_model": "minecraft:brush",
+                "minecraft:entity_data": {
+                  "id": "minecraft:item_frame",
+                  "Silent": true,
+                  "Tags": [
+                    "world_brush"
+                  ],
+                  "Invisible": true,
+                  "Fixed": true
+                },
+                "minecraft:attribute_modifiers": [
+                  {
+                    "type": "minecraft:block_interaction_range",
+                    "id": "world_brush_reach",
+                    "amount": 64,
+                    "operation": "add_value"
+                  }
+                ],
+                "minecraft:piercing_weapon": {},
+                "minecraft:enchantments": {
+                  "world_brush:left_click": 1
+                },
+                "minecraft:tooltip_display": {
+                  "hidden_components": [
+                    "minecraft:enchantments"
+                  ]
+                },
+                "minecraft:max_stack_size": 1
+              }
+            }
+          ]
         }
-    ]
+      ]
+    }
+  ]
 }

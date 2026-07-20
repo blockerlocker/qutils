@@ -1,10 +1,7 @@
 {
   "pack": {
     "description": "Lightweight speedometer pack.",
-    "min_format": [
-      101,
-      2
-    ],
-    "max_format": 101
+    "min_format": 111,
+    "max_format": 111
   }
 }

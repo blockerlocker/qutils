@@ -1,24 +1,28 @@
 {
-    "criteria": {
-        "use": {
-            "trigger": "minecraft:item_used_on_block",
-            "conditions": {
-                "player": {
-                    "equipment": {
-                        "mainhand": {
-                            "items": "minecraft:item_frame",
-                            "components": {
-                                "minecraft:custom_data": {
-                                    "command_viz": true
-                                }
-                            }
-                        }
-                    }
+  "criteria": {
+    "use": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "equipment": {
+              "mainhand": {
+                "items": "minecraft:item_frame",
+                "components": {
+                  "minecraft:custom_data": {
+                    "command_viz": true
+                  }
                 }
+              }
             }
+          }
         }
-    },
-    "rewards": {
-        "function": "command_viz:zzz/use"
+      }
     }
+  },
+  "rewards": {
+    "function": "command_viz:zzz/use"
+  }
 }

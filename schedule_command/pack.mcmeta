@@ -2,6 +2,6 @@
   "pack": {
     "description": "Schedule a single command.",
     "min_format": 103,
-    "max_format": 103
+    "max_format": 111
   }
 }

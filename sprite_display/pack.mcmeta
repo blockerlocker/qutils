@@ -2,6 +2,6 @@
   "pack": {
     "description": "Automatic scaling for sprites in text displays.",
     "min_format": 100,
-    "max_format": 100
+    "max_format": 111
   }
 }

@@ -1,6 +1,6 @@
 {
 	"pack": {
-		"pack_format": 80,
+		"pack_format": 111,
 		"description": "Run the same command as many times as you like."
 	}
 }
