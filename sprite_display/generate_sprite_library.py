@@ -48,7 +48,26 @@ for file in os.listdir(atlas_dir):
         all_atlas_sources.append(atlas_source)
 
 print("--Building sprite map")
-texture_dir = f"{TEMPORARY_DIRECTORY}/assets/minecraft/textures/"
+
+def process_texture(texture,source_path):
+    if texture.is_file() and str(texture).endswith(".png"):
+        with Image.open(texture) as image:
+            width, height = image.size
+
+        if Path(f"{texture}.mcmeta").is_file():
+            with open(f"{texture}.mcmeta", "r") as mcmeta_json:
+                mcmeta = json.load(mcmeta_json)
+                if "animation" in mcmeta:
+                    height = width
+                    if "height" in mcmeta["animation"]:
+                        height = mcmeta["animation"]["height"]
+        strip_dir = source_path.replace("//","/") + "/"
+        sprite_name = str(texture).replace("\\","/").replace(strip_dir,"").replace(".png","")
+        sprite_data[atlas][f"{prefix}{sprite_name}"] = {"atlas":atlas,"sprite":f"{prefix}{sprite_name}","width":width,"height":height,"scale":1}
+        browse_sprites.append({"storage":"sprite_display:sprite_data","nbt":f"{atlas}.'{prefix}{sprite_name}'","interpret":True,"shadow_color":0,"click_event":{"action":"suggest_command","command":f"/function sprite_display:summon with storage sprite_display:sprite_data {atlas}.'{prefix}{sprite_name}'"},"hover_event":{"action":"show_text","value":[{"text":f"Summon {prefix}{sprite_name}","color":"aqua"},{"text":f"\natlas: {atlas}","color":"gray","italic":True}]}})
+        debug_sprites.append({"storage":"sprite_display:sprite_data","nbt":f"{atlas}.'{prefix}{sprite_name}'","interpret":True})
+
+texture_dir = f"{TEMPORARY_DIRECTORY}/assets/minecraft/textures"
 sprite_data = {}
 browse_sprites = []
 debug_sprites = []
@@ -62,25 +81,15 @@ for atlas_source in all_atlas_sources:
 
     if atlas_source["type"] == "minecraft:directory":
         source = str(atlas_source["source"])
-        source_path = f"{texture_dir}/{source}"
+        source_path = f"{texture_dir}/{source}"        
         for texture in Path(source_path).rglob("*"):
-            if texture.is_file() and str(texture).endswith(".png"):
-                with Image.open(texture) as image:
-                    width, height = image.size
+            process_texture(texture,source_path)
 
-                if Path(f"{texture}.mcmeta").is_file():
-                    with open(f"{texture}.mcmeta", "r") as mcmeta_json:
-                        mcmeta = json.load(mcmeta_json)
-                        if "animation" in mcmeta:
-                            height = width
-                            if "height" in mcmeta["animation"]:
-                                height = mcmeta["animation"]["height"]
-                
-                strip_dir = source_path.replace("//","/") + "/"
-                sprite_name = str(texture).replace("\\","/").replace(strip_dir,"").replace(".png","")
-                sprite_data[atlas][f"{prefix}{sprite_name}"] = {"atlas":atlas,"sprite":f"{prefix}{sprite_name}","width":width,"height":height,"scale":1}
-                browse_sprites.append({"storage":"sprite_display:sprite_data","nbt":f"{atlas}.'{prefix}{sprite_name}'","interpret":True,"shadow_color":0,"click_event":{"action":"suggest_command","command":f"/function sprite_display:summon with storage sprite_display:sprite_data {atlas}.'{prefix}{sprite_name}'"},"hover_event":{"action":"show_text","value":[{"text":f"Summon {prefix}{sprite_name}","color":"aqua"},{"text":f"\natlas: {atlas}","color":"gray","italic":True}]}})
-                debug_sprites.append({"storage":"sprite_display:sprite_data","nbt":f"{atlas}.'{prefix}{sprite_name}'","interpret":True})
+    if atlas_source["type"] == "minecraft:single":
+        source = str(atlas_source["resource"]).replace("minecraft:","")
+        source_path = f"{texture_dir}/{source}"
+        process_texture(Path(f"{source_path}.png"),f"{texture_dir}")
+
 
 print("--Creating load.mcfunction")
 Path("data/sprite_display/function").mkdir(parents=True,exist_ok=True)
