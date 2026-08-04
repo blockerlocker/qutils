@@ -1,3 +1,7 @@
+# Reset scale and translation
+data modify storage sprite_display:temp all.transformation set value {translation:[0,0,0],scale:[1,1,1]}
+
+
 # Initial width and height scalings
 data modify storage sprite_display:temp all.multiply set value [0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,1]
 data modify storage sprite_display:temp all.width set value [0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,1]
