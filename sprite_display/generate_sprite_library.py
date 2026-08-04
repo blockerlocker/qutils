@@ -50,7 +50,8 @@ for file in os.listdir(atlas_dir):
 print("--Building sprite map")
 texture_dir = f"{TEMPORARY_DIRECTORY}/assets/minecraft/textures/"
 sprite_data = {}
-display_sprites = []
+browse_sprites = []
+debug_sprites = []
 for atlas_source in all_atlas_sources:
     atlas = atlas_source["atlas_name"]
     if not atlas in sprite_data: sprite_data[atlas] = {}
@@ -78,7 +79,8 @@ for atlas_source in all_atlas_sources:
                 strip_dir = source_path.replace("//","/") + "/"
                 sprite_name = str(texture).replace("\\","/").replace(strip_dir,"").replace(".png","")
                 sprite_data[atlas][f"{prefix}{sprite_name}"] = {"atlas":atlas,"sprite":f"{prefix}{sprite_name}","width":width,"height":height,"scale":1}
-                display_sprites.append({"storage":"sprite_display:sprite_data","nbt":f"{atlas}.'{prefix}{sprite_name}'","interpret":True,"shadow_color":0,"click_event":{"action":"suggest_command","command":f"/function sprite_display:summon with storage sprite_display:sprite_data {atlas}.'{prefix}{sprite_name}'"},"hover_event":{"action":"show_text","value":[{"text":f"Summon {prefix}{sprite_name}","color":"aqua"},{"text":f"\natlas: {atlas}","color":"gray","italic":True}]}})
+                browse_sprites.append({"storage":"sprite_display:sprite_data","nbt":f"{atlas}.'{prefix}{sprite_name}'","interpret":True,"shadow_color":0,"click_event":{"action":"suggest_command","command":f"/function sprite_display:summon with storage sprite_display:sprite_data {atlas}.'{prefix}{sprite_name}'"},"hover_event":{"action":"show_text","value":[{"text":f"Summon {prefix}{sprite_name}","color":"aqua"},{"text":f"\natlas: {atlas}","color":"gray","italic":True}]}})
+                debug_sprites.append({"storage":"sprite_display:sprite_data","nbt":f"{atlas}.'{prefix}{sprite_name}'","interpret":True})
 
 print("--Creating load.mcfunction")
 Path("data/sprite_display/function").mkdir(parents=True,exist_ok=True)
@@ -88,7 +90,12 @@ with open("data/sprite_display/function/load.mcfunction", "w") as load:
 print("--Creating browse.mcfunction")
 Path("data/sprite_display/function").mkdir(parents=True,exist_ok=True)
 with open("data/sprite_display/function/browse.mcfunction", "w") as load:
-    load.write(f"tellraw @s {display_sprites}")
+    load.write(f"tellraw @s {browse_sprites}")
+
+print("--Creating debug_entity.mcfunction")
+Path("data/sprite_display/function").mkdir(parents=True,exist_ok=True)
+with open("data/sprite_display/function/debug_entity.mcfunction", "w") as load:
+    load.write(f"summon text_display ~ ~ ~ {{Tags:[sprite_display],background:0,shadow:false,line_width:640,data:{{sprite_display:{{height:1,width:1}}}},text:{browse_sprites}}}")
 
 print("--Removing temporary directory")
 shutil.rmtree(TEMPORARY_DIRECTORY, ignore_errors=True)
