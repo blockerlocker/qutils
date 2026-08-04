@@ -81,14 +81,13 @@ for atlas_source in all_atlas_sources:
 
     if atlas_source["type"] == "minecraft:directory":
         source = str(atlas_source["source"])
-        source_path = f"{texture_dir}/{source}"        
+        source_path = f"{texture_dir}/{source}"
         for texture in Path(source_path).rglob("*"):
             process_texture(texture,source_path)
 
     if atlas_source["type"] == "minecraft:single":
         source = str(atlas_source["resource"]).replace("minecraft:","")
-        source_path = f"{texture_dir}/{source}"
-        process_texture(Path(f"{source_path}.png"),f"{texture_dir}")
+        process_texture(Path(f"{texture_dir}/{source}.png"),f"{texture_dir}")
 
 
 print("--Creating load.mcfunction")
