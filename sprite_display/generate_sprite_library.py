@@ -23,7 +23,7 @@ version_manifest = json.load(urllib.request.urlopen("https://piston-meta.mojang.
 version = next((item for item in version_manifest["versions"] if item["id"] == MCVERSION), None)
 
 if version == None:
-    print("MCVERSION does not exist in version manifest!")
+    print(f"{MCVERSION} does not exist in version manifest!")
     sys.exit()
 
 print(f"--Downloading client.jar for {MCVERSION}")
