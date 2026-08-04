@@ -78,7 +78,7 @@ for atlas_source in all_atlas_sources:
                 strip_dir = source_path.replace("//","/") + "/"
                 sprite_name = str(texture).replace("\\","/").replace(strip_dir,"").replace(".png","")
                 sprite_data[atlas][f"{prefix}{sprite_name}"] = {"atlas":atlas,"sprite":f"{prefix}{sprite_name}","width":width,"height":height,"scale":1}
-                display_sprites.append({"storage":"sprite_display:sprite_data","nbt":f"{atlas}.'{prefix}{sprite_name}'","interpret":True,"shadow_color":0,"click_event":{"action":"suggest_command","command":f"/function sprite_display:summon with storage sprite_display:sprite_data {atlas}.'{prefix}{sprite_name}'"}})
+                display_sprites.append({"storage":"sprite_display:sprite_data","nbt":f"{atlas}.'{prefix}{sprite_name}'","interpret":True,"shadow_color":0,"click_event":{"action":"suggest_command","command":f"/function sprite_display:summon with storage sprite_display:sprite_data {atlas}.'{prefix}{sprite_name}'"},"hover_event":{"action":"show_text","value":[{"text":f"Summon {prefix}{sprite_name}","color":"aqua"},{"text":f"\natlas: {atlas}","color":"gray","italic":True}]}})
 
 print("--Creating load.mcfunction")
 Path("data/sprite_display/function").mkdir(parents=True,exist_ok=True)
