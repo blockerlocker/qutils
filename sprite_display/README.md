@@ -1,6 +1,8 @@
-Sprite Display is a data pack for quickly and easily summoning Text Displays that contain a single atlased sprite. It includes functions for summoning and scaling sprites, as well as an entire internal database of available atlased sprite, viewable with the `/function sprite_display:browse` function. Since this browsing function displays the sprites in chat, they are not correctly scaled, and are squished into a square. Clicking on a sprite in the browser will suggest a command to summon that specific sprite.
+Sprite Display is a data pack for quickly and easily summoning Text Displays that contain a single atlased sprite. It includes functions for summoning and scaling sprites, as well as an entire internal database of available atlased sprites, viewable with the `/function sprite_display:browse` function. Since this browsing function displays the sprites in chat, they are not correctly scaled, and are squished into a square. Clicking on a sprite in the browser will suggest a command to summon that specific sprite.
 
-Every summoned Sprite Display is tagged with `sprite_display` so you can more easily teleport, rotate, and rescale them. Below are the available commands. For example, `/kill @n[tag=sprite_display]` will delete the nearest Sprite Display, and `/execute as @n[tag=sprite_display] at @s run rotate @s ~15 ~` will rotate the nearest Sprite Display by 15 degrees.
+Every summoned Sprite Display is tagged with `sprite_display` so you can more easily teleport, rotate, and rescale them. For example, `/kill @n[tag=sprite_display]` will delete the nearest Sprite Display, and `/execute as @n[tag=sprite_display] at @s run rotate @s ~15 ~` will rotate the nearest Sprite Display by 15 degrees.
+
+Here are all of the important functions of the pack:
 
 | Command | Description |
 | --- | --- |
