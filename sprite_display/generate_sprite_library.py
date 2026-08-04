@@ -85,9 +85,9 @@ Path("data/sprite_display/function").mkdir(parents=True,exist_ok=True)
 with open("data/sprite_display/function/load.mcfunction", "w") as load:
     load.write(f"data merge storage sprite_display:sprite_data {sprite_data}")
 
-print("--Creating browse_sprites.mcfunction")
+print("--Creating browse.mcfunction")
 Path("data/sprite_display/function").mkdir(parents=True,exist_ok=True)
-with open("data/sprite_display/function/browse_sprites.mcfunction", "w") as load:
+with open("data/sprite_display/function/browse.mcfunction", "w") as load:
     load.write(f"tellraw @s {display_sprites}")
 
 print("--Removing temporary directory")
