@@ -59,15 +59,23 @@ def process_texture(texture,source_path):
                 height = width
                 if "height" in mcmeta["animation"]:
                     height = mcmeta["animation"]["height"]
+
+    baked_width = width * 0.3125
+    baked_height = height * 0.3125
+    baked_x_translation = baked_width * -0.025
+    baked_y_translation = baked_height * -0.15
+        
     strip_dir = source_path.replace("//","/") + "/"
     sprite_name = str(texture).replace("\\","/").replace(strip_dir,"").replace(".png","")
     sprite_data[atlas][f"{prefix}{sprite_name}"] = {"atlas":atlas,"sprite":f"{prefix}{sprite_name}","width":width,"height":height,"scale":1}
     browse_sprites.append({"storage":"sprite_display:sprite_data","nbt":f"{atlas}.'{prefix}{sprite_name}'","interpret":True,"shadow_color":0,"click_event":{"action":"suggest_command","command":f"/function sprite_display:summon with storage sprite_display:sprite_data {atlas}.'{prefix}{sprite_name}'"},"hover_event":{"action":"show_text","value":[{"text":f"Summon {prefix}{sprite_name}","color":"aqua"},{"text":f"\natlas: {atlas}","color":"gray","italic":True}]}})
+    browse_baked.append({"atlas":f"{atlas}","sprite":f"{prefix}{sprite_name}","shadow_color":0,"click_event":{"action":"suggest_command","command":f"/execute summon text_display run data merge entity @s {{Tags:[sprite_display],background:0,transformation:{{scale:[{baked_width},{baked_height},1],translation:[{baked_x_translation},{baked_y_translation},0]}},text:{{atlas:'{atlas}',sprite:'{prefix}{sprite_name}'}}}}"},"hover_event":{"action":"show_text","value":[{"text":f"Summon {prefix}{sprite_name}","color":"aqua"},{"text":f"\natlas: {atlas}","color":"gray","italic":True}]}})
     debug_sprites.append({"storage":"sprite_display:sprite_data","nbt":f"{atlas}.'{prefix}{sprite_name}'","interpret":True})
 
 texture_dir = f"{TEMPORARY_DIRECTORY}/assets/minecraft/textures"
 sprite_data = {}
 browse_sprites = []
+browse_baked = []
 debug_sprites = []
 for atlas_source in all_atlas_sources:
     atlas = atlas_source["atlas_name"]
@@ -97,6 +105,11 @@ print("--Creating browse.mcfunction")
 Path("data/sprite_display/function").mkdir(parents=True,exist_ok=True)
 with open("data/sprite_display/function/browse.mcfunction", "w") as load:
     load.write(f"tellraw @s {browse_sprites}")
+
+print("--Creating vanilla_friendly_browse.mcfunction")
+Path("data/sprite_display/function").mkdir(parents=True,exist_ok=True)
+with open("data/sprite_display/function/vanilla_friendly_browse.mcfunction", "w") as load:
+    load.write(f"tellraw @s {browse_baked}")
 
 print("--Creating debug_entity.mcfunction")
 Path("data/sprite_display/function").mkdir(parents=True,exist_ok=True)
