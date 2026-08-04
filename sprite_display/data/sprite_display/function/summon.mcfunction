@@ -12,7 +12,7 @@
 
 # Summon Sprite Display
 data modify storage sprite_display:temp all.transformation set value {scale:[1,1,1],translation:[0,0,0]}
-$summon text_display ~ ~ ~ {text:{atlas:"$(atlas)",sprite:"$(sprite)"},background:0,data:{sprite_display:{height:$(height),width:$(width)}},Tags:[sprite_display]}
+$summon text_display ~ ~ ~ {text:{atlas:"$(atlas)",sprite:"$(sprite)"},background:0,data:{sprite_size:[$(height),$(width)]},Tags:[sprite_display]}
 
 
 # Initial width and height scalings

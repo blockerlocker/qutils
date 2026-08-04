@@ -5,7 +5,7 @@ data modify storage sprite_display:temp all.transformation set value {translatio
 # Initial width and height scalings
 data modify storage sprite_display:temp all.multiply set value [0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,1]
 data modify storage sprite_display:temp all.width set value [0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,1]
-data modify storage sprite_display:temp all.width[15] set from entity @n[type=text_display,tag=sprite_display] data.sprite_display.width
+data modify storage sprite_display:temp all.width[15] set from entity @n[type=text_display,tag=sprite_display] data.sprite_size[0]
 data modify entity @n[type=text_display,tag=sprite_display] transformation set from storage sprite_display:temp all.width
 data modify storage sprite_display:temp all.multiply[-1] set from entity @n[type=text_display,tag=sprite_display] transformation.translation[0]
 data modify storage sprite_display:temp all.multiply[3] set value 0.3125
@@ -14,7 +14,7 @@ data modify storage sprite_display:temp all.width set from entity @n[type=text_d
 
 data modify storage sprite_display:temp all.multiply set value [0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,1]
 data modify storage sprite_display:temp all.height set value [0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,1]
-data modify storage sprite_display:temp all.height[15] set from entity @n[type=text_display,tag=sprite_display] data.sprite_display.height
+data modify storage sprite_display:temp all.height[15] set from entity @n[type=text_display,tag=sprite_display] data.sprite_size[1]
 data modify entity @n[type=text_display,tag=sprite_display] transformation set from storage sprite_display:temp all.height
 data modify storage sprite_display:temp all.multiply[-1] set from entity @n[type=text_display,tag=sprite_display] transformation.translation[0]
 data modify storage sprite_display:temp all.multiply[3] set value 0.3125
