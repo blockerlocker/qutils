@@ -1,2 +1,2 @@
-$item modify entity @n[tag=world_brush_used] weapon.mainhand {type:set_custom_data,tag:{world_brush:{operation:{args:{block:"$(Name)"}}}}}
-$item modify entity @n[tag=world_brush_used] weapon.mainhand {type:set_components,components:{custom_name:"Fill $(Name)"}}
+$item modify entity @n[tag=world_brush_used] weapon.mainhand {type:set_custom_data,tag:{world_brush:{operation:{args:{block:"$(id)"}}}}}
+$item modify entity @n[tag=world_brush_used] weapon.mainhand {type:set_components,components:{custom_name:"Fill $(id)"}}

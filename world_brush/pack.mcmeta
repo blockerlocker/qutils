@@ -1,7 +1,7 @@
 {
   "pack": {
     "description": "Basic world editing tools.",
-    "min_format": 111,
-    "max_format": 111
+    "min_format": 115,
+    "max_format": 115
   }
 }

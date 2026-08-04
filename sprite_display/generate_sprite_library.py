@@ -7,7 +7,7 @@ if len(sys.argv) > 1:
     MCVERSION = sys.argv[1]
 else:
 #### SET MINECRAFT VERSION MANUALLY HERE ####
-    MCVERSION = "26.3-snapshot-6"
+    MCVERSION = "26.3-snapshot-7"
 
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
