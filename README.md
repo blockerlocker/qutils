@@ -1,6 +1,6 @@
 For Minecraft 26.3
 
-Various utility data packs I use, nothing super crazy, just a bunch of small useful things. Below are quicky summaries of each tool.
+Various utility data packs I use, nothing super crazy, just a bunch of small useful things. Below are quick summaries of each tool.
 
 | Pack | Description |
 | --- | --- |
@@ -10,7 +10,7 @@ Various utility data packs I use, nothing super crazy, just a bunch of small use
 | data_grab | Easily copy any NBT data to the clipboard. Can be from a block, entity, or data storage. Example:<br>`/function data_grab:copy_from {from:"storage speedometer:state sidebar_visible"}` |
 | echo | Run a command as many times as you want. Example:<br>`/function echo:run {command:"say hi",count:5}` |
 | last_death | Teleport to last death location.<br>`/function last_death:tp` |
-| quick_text | Various functions for quickly modifying the nearest Text Display. Functions without arguments are toggles.<br>`/function quick_text:copy`<br>`/function quick_text:paste`<br>`/function quick_text:billboard_center`<br>`/function quick_text:emissive`<br>`/function quick_text:shadow`<br>`/function quick_text:nudge_facing {amount:<blocks>}`<br>`/function quick_text:set_background {color:<color>}`<br>`/function quick_text:set_line_width {width:<amount>}`<br>`/function quick_text:set_scale {scale:<amount>}`<br>`/function quick_text:set_text {text:<text>}`<br> |
+| quick_text | Various functions for quickly modifying the nearest Text Display. Functions without arguments are toggles.<br>`/function quick_text:copy`<br>`/function quick_text:paste`<br>`/function quick_text:billboard/<center\|horizontal\|vertical>`<br>`/function quick_text:emissive`<br>`/function quick_text:shadow`<br>`/function quick_text:nudge_facing {amount:<blocks>}`<br>`/function quick_text:set/background {color:<color>}`<br>`/function quick_text:set/color {color:<color>}`<br>`/function quick_text:set/line_width {width:<amount>}`<br>`/function quick_text:set/scale {scale:<amount>}`<br>`/function quick_text:set/text {text:<text>}`<br> |
 | remote_control | Quickly create and edit basic items that run commands when left or right clicked. Available in Quick Dialog menu, or manually with<br>`/dialog show @s remote_control:new_remote` |
 | schedule_command | Run a command after a set amount of time. Only one command can be scheduled at a time. Example:<br>`/function schedule_command:run {command:"say hi",time:"4s"}` |
 | sprite_display | Easily spawn and rescale Text Displays with a single sprite in them. For more information, read the [Sprite Display README](sprite_display/README.md). |
