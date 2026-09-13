@@ -91,7 +91,7 @@ for atlas_source in all_atlas_sources:
         process_texture(Path(f"{texture_dir}/{source}.png"),f"{texture_dir}")
 
 bldp.string_to_file(f"data merge storage sprite_display:sprite_data {sprite_data}","sprite_display/function","load.mcfunction")
-bldp.string_to_file(f"tellraw @s {browse_sprites}","sprite_display/function","browse.mcfunction")
+bldp.string_to_file(f"dialog show @s {{type:notice,title:\"Sprite Display Browser\",body:{{type:plain_message,width:500,contents:{browse_sprites}}}}}","sprite_display/function","browse.mcfunction")
 bldp.string_to_file(f"summon text_display ~ ~ ~ {{Tags:[sprite_display],background:0,shadow:false,line_width:640,data:{{sprite_size:[1,1]}},text:{browse_sprites}}}","sprite_display/function","debug_entity.mcfunction")
 
 bldp.remove_path(TEMP_DIR)
