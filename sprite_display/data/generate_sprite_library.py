@@ -64,12 +64,14 @@ def process_texture(texture,source_path):
     strip_dir = source_path.replace("//","/") + "/"
     sprite_name = str(texture).replace("\\","/").replace(strip_dir,"").replace(".png","")
     sprite_data[atlas][f"{prefix}{sprite_name}"] = {"atlas":atlas,"sprite":f"{prefix}{sprite_name}","width":width,"height":height,"scale":1}
-    browse_sprites.append({"atlas":f"{atlas}","sprite":f"{prefix}{sprite_name}","shadow_color":0,"click_event":{"action":"suggest_command","command":f"/summon text_display ~ ~ ~ {{Tags:[sprite_display],background:0,transformation:[{baked_width},0,0,{baked_x_translation},0,{baked_height},0,{baked_y_translation},0,0,1,0,0,0,0,1],data:{{sprite_size:[{width},{height}]}},text:{{atlas:'{atlas}',sprite:'{prefix}{sprite_name}'}}}}"},"hover_event":{"action":"show_text","value":[{"text":f"Summon {prefix}{sprite_name}","color":"aqua"},{"text":f"\natlas: {atlas}","color":"gray","italic":True}]}})
+    browse_sprites.append({"atlas":f"{atlas}","sprite":f"{prefix}{sprite_name}","shadow_color":0,"click_event":{"action":"run_command","command":f"/summon text_display ~ ~ ~ {{Tags:[sprite_display],background:0,transformation:[{baked_width},0,0,{baked_x_translation},0,{baked_height},0,{baked_y_translation},0,0,1,0,0,0,0,1],data:{{sprite_size:[{width},{height}]}},text:{{atlas:'{atlas}',sprite:'{prefix}{sprite_name}'}}}}"},"hover_event":{"action":"show_text","value":[{"text":f"Summon {prefix}{sprite_name}","color":"aqua"},{"text":f"\natlas: {atlas}","color":"gray","italic":True}]}})
+    copy_to_clipboard.append({"atlas":f"{atlas}","sprite":f"{prefix}{sprite_name}","shadow_color":0,"click_event":{"action":"copy_to_clipboard","value":f"/summon text_display ~ ~ ~ {{Tags:[sprite_display],background:0,transformation:[{baked_width},0,0,{baked_x_translation},0,{baked_height},0,{baked_y_translation},0,0,1,0,0,0,0,1],data:{{sprite_size:[{width},{height}]}},text:{{atlas:'{atlas}',sprite:'{prefix}{sprite_name}'}}}}"},"hover_event":{"action":"show_text","value":[{"text":f"Summon {prefix}{sprite_name}","color":"aqua"},{"text":f"\natlas: {atlas}","color":"gray","italic":True}]}})
     debug_sprites.append({"storage":"sprite_display:sprite_data","nbt":f"{atlas}.'{prefix}{sprite_name}'","interpret":True})
 
 texture_dir = f"{TEMP_DIR}/assets/minecraft/textures"
 sprite_data = {}
 browse_sprites = []
+copy_to_clipboard = []
 debug_sprites = []
 for atlas_source in all_atlas_sources:
     atlas = atlas_source["atlas_name"]
@@ -92,6 +94,7 @@ for atlas_source in all_atlas_sources:
 
 bldp.string_to_file(f"data merge storage sprite_display:sprite_data {sprite_data}","sprite_display/function","load.mcfunction")
 bldp.string_to_file(f"dialog show @s {{type:notice,title:\"Sprite Display Browser\",body:{{type:plain_message,width:500,contents:{browse_sprites}}}}}","sprite_display/function","browse.mcfunction")
+bldp.string_to_file(f"dialog show @s {{type:notice,title:\"Sprite Display Browser\",body:{{type:plain_message,width:500,contents:{copy_to_clipboard}}}}}","sprite_display/function","copy_to_clipboard.mcfunction")
 bldp.string_to_file(f"summon text_display ~ ~ ~ {{Tags:[sprite_display],background:0,shadow:false,line_width:640,data:{{sprite_size:[1,1]}},text:{browse_sprites}}}","sprite_display/function","debug_entity.mcfunction")
 
 bldp.remove_path(TEMP_DIR)
